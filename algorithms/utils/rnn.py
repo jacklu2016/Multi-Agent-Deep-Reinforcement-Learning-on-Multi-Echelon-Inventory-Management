@@ -11,6 +11,7 @@ class RNNLayer(nn.Module):
         self._use_orthogonal = use_orthogonal
 
         self.rnn = nn.GRU(inputs_dim, outputs_dim, num_layers=self._recurrent_N)
+        #self.rnn = nn.LSTM(inputs_dim, outputs_dim, num_layers=self._recurrent_N)
         for name, param in self.rnn.named_parameters():
             if 'bias' in name:
                 nn.init.constant_(param, 0)
